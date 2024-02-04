@@ -1,0 +1,121 @@
+﻿CreateTable Products(ProductId: int, ProductName: string, Price: double, InStock: bool)
+Insert INTO Products (ProductId, ProductName, Price, InStock) VALUES (1, "Laptop", 999.99, true)
+Insert INTO Products (ProductId, ProductName, Price, InStock) VALUES (2, "Phone", 499.99, false)
+Select ProductId, ProductName FROM Products WHERE InStock = true
+
+CreateTable Employees(Id: int, Name: string, JoinDate: date)
+Insert INTO Employees (Id, Name, JoinDate) VALUES (1, "John Doe", "2022-01-10")
+Insert INTO Employees (Id, Name, JoinDate) VALUES (2, "Jane Smith", "2020-12-01")
+Insert INTO Employees (Id, Name, JoinDate) VALUES (3, "Alice Johnson", "2021-05-23")
+Insert INTO Employees (Id, Name, JoinDate) VALUES (11, "Alex Kadiyski", "2021-05-23")
+Select Name, JoinDate FROM Employees WHERE JoinDate > "01.01.2021" AND Id < 10
+Delete FROM Employees WHERE Name = "Alice Johnson"
+Select Id, Name FROM Employees
+
+CreateTable Orders(OrderId: int, CustomerId: int, OrderDate: date, TotalAmount: double)
+Insert INTO Orders (OrderId, CustomerId, OrderDate, TotalAmount) VALUES (1, 100, "2022-01-15", 1500.00)
+Insert INTO Orders (OrderId, CustomerId, OrderDate, TotalAmount) VALUES (2, 101, "2022-01-20", 200.00)
+Insert INTO Orders (OrderId, CustomerId, OrderDate, TotalAmount) VALUES (3, 102, "2022-01-25", 99.00)
+Select OrderId, TotalAmount FROM Orders WHERE TotalAmount > 100.00
+
+
+
+CreateTable [TableName]([ColumnName]: [VariableType], [ColumnName]: [VariableType], ...)
+Insert INTO [TableName] ([ColumnName], [ColumnName], ...) VALUES ([Variable], [Variable], ...)
+Select [ColumnName], [ColumnName], ... FROM [TableName] WHERE [Statement] AND [Statement]
+Select [ColumnName], [ColumnName], ... FROM [TableName] WHERE [Statement]
+Select [ColumnName], [ColumnName], ... FROM [TableName]
+Delete FROM [TableName] WHERE [Condition]
+
+
+Next Steps in the Project:
+Documentation: Document your implementation, focusing on how you handle different data types and maintain index consistency.
+
+Additional Recommendations:
+Code Organization: Organize your code into appropriate namespaces and ensure that each class and interface is in its proper file. This organization makes the codebase easier to navigate and maintain.
+Error Handling and Logging: Implement robust error handling and logging mechanisms to handle unexpected scenarios gracefully and provide useful feedback for debugging.
+
+Future Enhancements:
+Graphical User Interface (GUI): Consider developing a GUI for easier interaction with your DBMS.
+Advanced Query Optimization: Implement more advanced indexing and query optimization techniques for improved performance.
+
+
+
+
+
+
+static void Select(string input)
+    {
+        // Existing parsing logic for extracting columns and table name
+        var selectParts = CustomSplit(input, " FROM ");
+        if (selectParts.Count < 2)
+        {
+            Console.WriteLine("Invalid SELECT command format.");
+            return;
+        }
+
+        var splitColumns = CustomSplit(selectParts[0], ",");
+        var columns = new List<string>();
+
+        foreach (var column in splitColumns)
+        {
+            columns.Add(CustomTrim(column));
+        }
+
+        var fromAndWhereParts = CustomSplit(selectParts[1], " WHERE ");
+        string tableName = CustomTrim(fromAndWhereParts[0]);
+        var table = CustomFindFirst(db.Tables, t => t.Name == tableName);
+        if (table == null)
+        {
+            Console.WriteLine("Table not found.");
+            return;
+        }
+
+        if (!columns.All(col => table.Columns.Any(tc => tc.Name.Equals(col, StringComparison.OrdinalIgnoreCase))))
+        {
+            Console.WriteLine("One or more selected columns do not exist in the table.");
+            return;
+        }
+
+        string whereClause = fromAndWhereParts.Count > 1 ? fromAndWhereParts[1] : null;
+        var filteredRows = table.Rows;
+
+        if (!string.IsNullOrEmpty(whereClause))
+        {
+            var whereCondition = ParseWhereCondition(whereClause, table);
+            if (whereCondition == null || !table.Columns.Any(c => c.Name.Equals(whereCondition.Item1, StringComparison.OrdinalIgnoreCase)))
+            {
+                Console.WriteLine("Invalid or non-existent column in WHERE clause.");
+                return;
+            }
+
+            filteredRows = new List<Dictionary<string, object>>(ProcessWhereClause(filteredRows, whereClause, table.Columns, typeStrategies));
+        }
+
+        // Existing DISTINCT and ORDER BY logic
+        bool distinct = input.Contains("DISTINCT");
+        string orderByColumn = null;
+        int orderByIndex = CustomIndexOf(input, "ORDER BY");
+        if (orderByIndex != -1)
+        {
+            var orderByParts = CustomSplit(CustomSubstring(input, orderByIndex + 9, input.Length - orderByIndex - 9), " ");
+            orderByColumn = orderByParts[0];
+
+            if (!table.Columns.Any(c => c.Name.Equals(orderByColumn, StringComparison.OrdinalIgnoreCase)))
+            {
+                Console.WriteLine("Order by column does not exist in the table.");
+                return;
+            }
+        }
+
+        if (distinct)
+        {
+            filteredRows = CustomDistinctAndOrderBy(filteredRows, columns.ToArray(), orderByColumn);
+        }
+        else if (!string.IsNullOrEmpty(orderByColumn))
+        {
+            filteredRows = CustomOrderBy(filteredRows, orderByColumn);
+        }
+
+        PrintSelectedRows(filteredRows, columns.ToArray());
+    }

@@ -1,0 +1,28 @@
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.exe
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.deps.json
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.runtimeconfig.json
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.dll
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.pdb
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.AssemblyInfoInputs.cache
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.AssemblyInfo.cs
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.csproj.CoreCompileInputs.cache
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.dll
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\refint\Database Management System.dll
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.pdb
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.genruntimeconfig.cache
+C:\Programing\Technical University\C#\DBMS Console\Database Management System\obj\Debug\net8.0\ref\Database Management System.dll
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.exe
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.deps.json
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.runtimeconfig.json
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.dll
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\bin\Debug\net8.0\Database Management System.pdb
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.AssemblyInfoInputs.cache
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.AssemblyInfo.cs
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.csproj.CoreCompileInputs.cache
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.dll
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\refint\Database Management System.dll
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.pdb
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\Database Management System.genruntimeconfig.cache
+C:\Users\alex_\OneDrive\Работен плот\DBMS Console\DBMS Console\Database Management System\obj\Debug\net8.0\ref\Database Management System.dll
